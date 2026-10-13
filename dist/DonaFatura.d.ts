@@ -16,10 +16,15 @@ export interface DonaFaturaProps extends PersonagemProps {
     pega?: number;
     /** Fonte da faixa e do carimbo. */
     fonte?: string;
+    /**
+     * Cor de um contorno por fora dos braços e das pernas. Eles são da cor da
+     * tinta e somem em fundo escuro; no vídeo, que tem fundo próprio, fica sem.
+     */
+    contorno?: string;
 }
 /**
  * A Dona Fatura: uma folha de papel com cara, código de barras, luvas e tênis.
  * É a vilã — a conta que aparece sem ninguém saber de onde veio.
  * Devolve um <g>: ponha dentro de um <svg> seu ou de um <Quadro>.
  */
-export declare function DonaFatura({ pose: p, t, x, y, escala, opacidade, espelho, pega, fonte }: DonaFaturaProps): import("react").JSX.Element;
+export declare function DonaFatura({ pose: p, t, x, y, escala, opacidade, espelho, pega, fonte, contorno }: DonaFaturaProps): import("react").JSX.Element;

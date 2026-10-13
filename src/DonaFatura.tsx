@@ -19,6 +19,11 @@ export interface DonaFaturaProps extends PersonagemProps {
   pega?: number;
   /** Fonte da faixa e do carimbo. */
   fonte?: string;
+  /**
+   * Cor de um contorno por fora dos braços e das pernas. Eles são da cor da
+   * tinta e somem em fundo escuro; no vídeo, que tem fundo próprio, fica sem.
+   */
+  contorno?: string;
 }
 
 /**
@@ -26,7 +31,7 @@ export interface DonaFaturaProps extends PersonagemProps {
  * É a vilã — a conta que aparece sem ninguém saber de onde veio.
  * Devolve um <g>: ponha dentro de um <svg> seu ou de um <Quadro>.
  */
-export function DonaFatura({ pose: p, t = 0, x = 0, y = 0, escala = 1, opacidade = 1, espelho = 1, pega = 0, fonte = 'Montserrat, sans-serif' }: DonaFaturaProps) {
+export function DonaFatura({ pose: p, t = 0, x = 0, y = 0, escala = 1, opacidade = 1, espelho = 1, pega = 0, fonte = 'Montserrat, sans-serif', contorno }: DonaFaturaProps) {
   const C = CORES_DONA_FATURA;
   const ombros: Ponto[] = [[-44, -122], [44, -122]];
   const quadril: Ponto[] = [[-18, -48], [18, -48]];
@@ -35,7 +40,9 @@ export function DonaFatura({ pose: p, t = 0, x = 0, y = 0, escala = 1, opacidade
   return (
     <g transform={`translate(${x + p.balanco * escala} ${y + p.pulo * escala}) scale(${escala * espelho} ${escala}) rotate(${p.inclinacao} 0 -60)`} opacity={opacidade}>
       <ellipse cx={0} cy={4} rx={56} ry={9} fill="rgba(0,0,0,0.35)" transform={`translate(${-p.balanco} ${-p.pulo})`} />
+      {contorno && <path d={membro(quadril[0], p.peEsq, -8)} stroke={contorno} strokeWidth={12} strokeLinecap="round" fill="none" />}
       <path d={membro(quadril[0], p.peEsq, -8)} stroke={C.tinta} strokeWidth={8} strokeLinecap="round" fill="none" />
+      {contorno && <path d={membro(quadril[1], p.peDir, 8)} stroke={contorno} strokeWidth={12} strokeLinecap="round" fill="none" />}
       <path d={membro(quadril[1], p.peDir, 8)} stroke={C.tinta} strokeWidth={8} strokeLinecap="round" fill="none" />
       <ellipse cx={p.peEsq[0] - 5} cy={p.peEsq[1]} rx={17} ry={9} fill={C.alerta} stroke={C.tinta} strokeWidth={2} />
       <ellipse cx={p.peDir[0] + 5} cy={p.peDir[1]} rx={17} ry={9} fill={C.alerta} stroke={C.tinta} strokeWidth={2} />
@@ -71,7 +78,9 @@ export function DonaFatura({ pose: p, t = 0, x = 0, y = 0, escala = 1, opacidade
           </g>
         )}
       </g>
+      {contorno && <path d={membro(ombros[0], p.maoEsq, -12)} stroke={contorno} strokeWidth={11} strokeLinecap="round" fill="none" />}
       <path d={membro(ombros[0], p.maoEsq, -12)} stroke={C.tinta} strokeWidth={7} strokeLinecap="round" fill="none" />
+      {contorno && <path d={membro(ombros[1], p.maoDir, 12)} stroke={contorno} strokeWidth={11} strokeLinecap="round" fill="none" />}
       <path d={membro(ombros[1], p.maoDir, 12)} stroke={C.tinta} strokeWidth={7} strokeLinecap="round" fill="none" />
       <circle cx={p.maoEsq[0]} cy={p.maoEsq[1]} r={11} fill={C.luva} stroke={C.tinta} strokeWidth={3} />
       <circle cx={p.maoDir[0]} cy={p.maoDir[1]} r={11} fill={C.luva} stroke={C.tinta} strokeWidth={3} />

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Dogia } from './Dogia.js';
-import { DonaFatura } from './DonaFatura.js';
+import { CORES_DONA_FATURA, DonaFatura } from './DonaFatura.js';
 import { ACOES, type Acao } from './poses.js';
 import { Quadro } from './Quadro.js';
 import { PERSONAGENS, type IdPersonagem } from './catalogo.js';
@@ -47,7 +47,7 @@ export function PersonagemAnimado({ quem, acao = 'parado', altura, bpm, feliz, p
   const nome = PERSONAGENS.find((p) => p.id === quem)?.nome ?? quem;
   return (
     <Quadro altura={altura} rotulo={nome} className={className}>
-      {quem === 'dogia' ? <Dogia pose={pose} t={t} feliz={feliz} /> : <DonaFatura pose={pose} t={t} pega={pega} />}
+      {quem === 'dogia' ? <Dogia pose={pose} t={t} feliz={feliz} /> : <DonaFatura pose={pose} t={t} pega={pega} contorno={CORES_DONA_FATURA.papel} />}
     </Quadro>
   );
 }

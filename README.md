@@ -11,7 +11,7 @@ Os personagens da A F DE SOUSA em SVG para React. O mesmo desenho roda no app
 ## Instalar
 
 ```
-npm i github:AlissonFurtado/afdesousa-personagens#v0.1.0
+npm i github:AlissonFurtado/afdesousa-personagens#v0.1.1
 ```
 
 Sempre por **tag**, nunca pela `main`: assim um desenho novo não muda um app
