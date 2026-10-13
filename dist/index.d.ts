@@ -1,11 +1,13 @@
 export type { Ponto, Pose, PersonagemProps } from './tipos.js';
-export { ACOES, batida, misturar, parado, acenando, gritando, dancando, comemorando } from './poses.js';
+export { ACOES, batida, misturar, parado, acenando, apontando, espiando, gritando, dancando, comemorando } from './poses.js';
 export type { Acao, OpcoesRitmo } from './poses.js';
 export { Dogia, CORES_DOGIA } from './Dogia.js';
 export type { DogiaProps } from './Dogia.js';
 export { DonaFatura, CORES_DONA_FATURA } from './DonaFatura.js';
 export type { DonaFaturaProps } from './DonaFatura.js';
+export { Lupita, CORES_LUPITA } from './Lupita.js';
+export type { LupitaProps } from './Lupita.js';
 export { Quadro, CAIXA } from './Quadro.js';
 export type { QuadroProps } from './Quadro.js';
 export { PERSONAGENS } from './catalogo.js';
-export type { FichaPersonagem, IdPersonagem } from './catalogo.js';
+export type { FichaPersonagem, IdPersonagem, Mundo } from './catalogo.js';

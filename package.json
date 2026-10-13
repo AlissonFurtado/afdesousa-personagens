@@ -1,7 +1,7 @@
 {
   "name": "@afdesousa/personagens",
-  "version": "0.1.1",
-  "description": "Personagens da A F DE SOUSA (Dogia, Dona Fatura) em SVG para React — o mesmo desenho no app e nos vídeos.",
+  "version": "0.2.0",
+  "description": "Personagens da A F DE SOUSA (Dogia, Dona Fatura, Lupita) em SVG para React — o mesmo desenho no app e nos vídeos.",
   "license": "UNLICENSED",
   "author": "A F DE SOUSA <contato@afdesousa.com.br>",
   "repository": "github:AlissonFurtado/afdesousa-personagens",

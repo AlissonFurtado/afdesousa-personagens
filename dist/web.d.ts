@@ -11,7 +11,7 @@ export interface PersonagemAnimadoProps {
     /** Altura em px. */
     altura?: number;
     bpm?: number;
-    /** Só o Dogia: olhos de contente. */
+    /** Dogia e Lupita: olhos de contente. */
     feliz?: boolean;
     /** Só a Dona Fatura: de 0 a 1, o quanto já foi pega. */
     pega?: number;

@@ -7,11 +7,15 @@ Os personagens da A F DE SOUSA em SVG para React. O mesmo desenho roda no app
 |---|---|---|---|
 | `dogia` | Dogia | herói | `<Dogia>` |
 | `dona-fatura` | Dona Fatura | vilã | `<DonaFatura>` |
+| `lupita` | Lupita | heroína (Verificado Agora) | `<Lupita>` |
+
+Cada personagem tem um `mundo` no catálogo (`dogia` ou `verificado-agora`).
+Personagens de mundos diferentes não aparecem juntos.
 
 ## Instalar
 
 ```
-npm i github:AlissonFurtado/afdesousa-personagens#v0.1.1
+npm i github:AlissonFurtado/afdesousa-personagens#v0.2.0
 ```
 
 Sempre por **tag**, nunca pela `main`: assim um desenho novo não muda um app
@@ -55,8 +59,8 @@ Os personagens devolvem um `<g>` com os pés em `(x, y)`; `escala={1}` dá uns
 ## Poses
 
 Uma `Pose` diz onde estão as mãos e os pés e como o corpo se mexe. As prontas
-são funções do tempo em segundos: `parado`, `acenando`, `gritando`, `dancando`,
-`comemorando`. Para uma pose só de uma cena, monte o objeto na mão ou combine
+são funções do tempo em segundos: `parado`, `acenando`, `apontando`, `espiando`, `gritando`,
+`dancando`, `comemorando`. Para uma pose só de uma cena, monte o objeto na mão ou combine
 duas com `misturar(a, b, k)`.
 
 ## Acrescentar um personagem

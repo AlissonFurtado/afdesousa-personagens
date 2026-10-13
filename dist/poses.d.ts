@@ -18,6 +18,10 @@ export declare function gritando(t: number, { bpm }?: OpcoesRitmo): Pose;
 export declare function dancando(t: number, { bpm, defasagem }?: OpcoesRitmo): Pose;
 /** Braços para o alto, pulando na batida. */
 export declare function comemorando(t: number, { bpm }?: OpcoesRitmo): Pose;
+/** Aponta com a asa direita (a da lupa) para o lado e para cima. */
+export declare function apontando(t: number): Pose;
+/** Traz a mão direita para a frente do rosto e se inclina: é olhar de perto. */
+export declare function espiando(t: number): Pose;
 /** As ações prontas, pelo nome — é o que o app escolhe por string. */
-export type Acao = 'parado' | 'acenando' | 'gritando' | 'dancando' | 'comemorando';
+export type Acao = 'parado' | 'acenando' | 'apontando' | 'espiando' | 'gritando' | 'dancando' | 'comemorando';
 export declare const ACOES: Record<Acao, (t: number, opcoes?: OpcoesRitmo) => Pose>;

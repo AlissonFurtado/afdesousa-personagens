@@ -137,6 +137,20 @@ export function comemorando(t: number, { bpm = 120 }: OpcoesRitmo = {}): Pose {
   };
 }
 
+/** Aponta com a asa direita (a da lupa) para o lado e para cima. */
+export function apontando(t: number): Pose {
+  const base = parado(t);
+  const vai = Math.sin(t * 5);
+  return { ...base, maoDir: [82 + 4 * vai, -150 - 3 * vai], inclinacao: 4, boca: 0.3, cabeca: 6 };
+}
+
+/** Traz a mão direita para a frente do rosto e se inclina: é olhar de perto. */
+export function espiando(t: number): Pose {
+  const base = parado(t);
+  const vai = Math.sin(t * 3);
+  return { ...base, maoDir: [-12 + 2 * vai, -118], maoEsq: [-46, -70], inclinacao: 6 + vai, boca: 0.15, cabeca: 4 };
+}
+
 /** As ações prontas, pelo nome — é o que o app escolhe por string. */
-export type Acao = 'parado' | 'acenando' | 'gritando' | 'dancando' | 'comemorando';
-export const ACOES: Record<Acao, (t: number, opcoes?: OpcoesRitmo) => Pose> = { parado, acenando, gritando, dancando, comemorando };
+export type Acao = 'parado' | 'acenando' | 'apontando' | 'espiando' | 'gritando' | 'dancando' | 'comemorando';
+export const ACOES: Record<Acao, (t: number, opcoes?: OpcoesRitmo) => Pose> = { parado, acenando, apontando, espiando, gritando, dancando, comemorando };

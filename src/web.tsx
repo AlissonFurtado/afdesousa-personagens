@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Dogia } from './Dogia.js';
 import { CORES_DONA_FATURA, DonaFatura } from './DonaFatura.js';
+import { Lupita } from './Lupita.js';
 import { ACOES, type Acao } from './poses.js';
 import { Quadro } from './Quadro.js';
 import { PERSONAGENS, type IdPersonagem } from './catalogo.js';
@@ -31,7 +32,7 @@ export interface PersonagemAnimadoProps {
   /** Altura em px. */
   altura?: number;
   bpm?: number;
-  /** Só o Dogia: olhos de contente. */
+  /** Dogia e Lupita: olhos de contente. */
   feliz?: boolean;
   /** Só a Dona Fatura: de 0 a 1, o quanto já foi pega. */
   pega?: number;
@@ -47,7 +48,7 @@ export function PersonagemAnimado({ quem, acao = 'parado', altura, bpm, feliz, p
   const nome = PERSONAGENS.find((p) => p.id === quem)?.nome ?? quem;
   return (
     <Quadro altura={altura} rotulo={nome} className={className}>
-      {quem === 'dogia' ? <Dogia pose={pose} t={t} feliz={feliz} /> : <DonaFatura pose={pose} t={t} pega={pega} contorno={CORES_DONA_FATURA.papel} />}
+      {quem === 'dogia' ? <Dogia pose={pose} t={t} feliz={feliz} /> : quem === 'lupita' ? <Lupita pose={pose} t={t} feliz={feliz} /> : <DonaFatura pose={pose} t={t} pega={pega} contorno={CORES_DONA_FATURA.papel} />}
     </Quadro>
   );
 }
